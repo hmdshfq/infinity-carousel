@@ -1,44 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Infinity Carousel</title>
-        <link rel="stylesheet" href="styles.css" />
-    </head>
-    <body>
-        <!-- Add Lobster for heading font from Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
-            rel="stylesheet"
-        />
-
-        <!-- Create a wrapper element that will cover the entire body -->
-        <div class="wrapper">
-            <!--  Display heading  -->
-            <h1>Infinity Carousel</h1>
-            <!--  Container for slides  -->
-            <div class="slides">
-                <!-- Infinite slides: You can keep adding the slides just remember to give the classes in the following order. #slide-0 (active), #slide-1 (next), #slide-2 (right), #slide-3 (left), and #slide-(last) (previous)  -->
-                <div id="slide-0" class="slide active">0</div>
-                <div id="slide-1" class="slide next">1</div>
-                <div id="slide-2" class="slide right">2</div>
-                <div id="slide-3" class="slide left">3</div>
-                <div id="slide-4" class="slide">4</div>
-                <div id="slide-5" class="slide">5</div>
-                <div id="slide-6" class="slide">6</div>
-                <div id="slide-7" class="slide">7</div>
-                <div id="slide-8" class="slide">8</div>
-                <div id="slide-9" class="slide previous">9</div>
-
-                <!--   Button areas for previous and next slide   -->
-                <div id="prev-button"></div>
-                <div id="next-button"></div>
-            </div>
-        </div>
-        <script src="script.js"></script>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infinity Carousel</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Add hammer.js script for swipe feature -->
+    <script defer src="hammer.js"></script>
+    <!-- Link JS file -->
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <main>
+      <!--  Display heading  -->
+      <h1>Infinity Carousel</h1>
+      <!--  Container for slides  -->
+      <div class="slides">
+        <!-- 
+          Infinite slides: You can keep adding the slides just remember 
+          to give the classes in the following order. 
+          #slide-0 -> .active, 
+          #slide-1 -> .next, 
+          #slide-2 -> .right, 
+          #slide-3 -> .left., 
+          and the last slide 
+          #slide-n -> .previous  
+        -->
+        <div id="slide-0" class="slide active">0</div>
+        <div id="slide-1" class="slide next">1</div>
+        <div id="slide-2" class="slide right">2</div>
+        <div id="slide-3" class="slide left">3</div>
+        <div id="slide-4" class="slide">4</div>
+        <div id="slide-5" class="slide">5</div>
+        <div id="slide-6" class="slide">6</div>
+        <div id="slide-7" class="slide">7</div>
+        <div id="slide-8" class="slide">8</div>
+        <div id="slide-9" class="slide previous">9</div>
+        <!-- Interactive areas for swiping, previous and next slide   -->
+        <div id="swipe"></div>
+        <div id="prev-slide"></div>
+        <div id="next-slide"></div>
+      </div>
+    </main>
+    <footer>
+      <p>
+        Created by
+        <a href="mailto:hmdshfq@outlook.com">Hammad Shafiq</a>
+      </p>
+    </footer>
+  </body>
 </html>

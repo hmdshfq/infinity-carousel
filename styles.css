@@ -1,86 +1,127 @@
 html,
 body {
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    font-family: sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #edf2fb;
 }
-.wrapper {
-    height: 100%;
-    background: #edf2fb;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
+:root {
+  /* Slide dimensions */
+  --width: 300px;
+  --height: 500px;
+  /* Colors */
+  --dark: hsl(219, 73%, 61%);
+  --light: hsl(219, 64%, 96%);
+}
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 h1 {
-    position: absolute;
-    top: 20px;
-    letter-spacing: 2px;
-    font-family: 'Lobster', cursive;
-    font-size: 64px;
-    color: #5386e4;
-    padding: 20px;
-}
-@media (max-width: 550px){
-    h1{
-        font-size: 32px;
-    }
+  font-family: sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #5386e4;
+  padding: 20px;
+  text-align: center;
 }
 .slides {
-    width: 600px;
-    height: 300px;
-    display: flex;
-    gap: 20px;
-    position: relative;
+  width: 100%;
+  height: var(--height);
+  display: flex;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
 }
-#prev-button {
-    position: absolute;
-    width: 200px;
-    height: 100%;
-    cursor: pointer;
+#prev-slide {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--width);
+  height: 100%;
+  cursor: pointer;
+  transform: translate(calc(-50% - var(--width)), -50%);
 }
-#next-button {
-    position: absolute;
-    width: 200px;
-    height: 100%;
-    right: 0;
-    cursor: pointer;
+#next-slide {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--width);
+  height: 100%;
+  right: 0;
+  cursor: pointer;
+  transform: translate(calc(-50% + var(--width)), -50%);
 }
 .slide {
-    width: 200px;
-    height: 100%;
-    background: #abc4ff;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    font-size: 2rem;
-    color: white;
-    display: grid;
-    place-items: center;
-    opacity: 0;
-    transition: transform 0.5s, opacity 0.5s;
+  width: var(--width);
+  height: 100%;
+  border-radius: 8px;
+  background: #abc4ff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 2rem;
+  color: white;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.5s;
 }
 .active {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
 }
 .previous {
-    opacity: 0.25;
-    transform: translate(calc(-50% - 200px), calc(-50%)) scale(0.85);
+  opacity: 0.25;
+  transform: translate(calc(-50% - var(--width)), -50%) scale(0.85);
 }
 .next {
-    opacity: 0.25;
-    transform: translate(calc(-50% + 200px), calc(-50%)) scale(0.85);
+  opacity: 0.25;
+  transform: translate(calc(-50% + var(--width)), -50%) scale(0.85);
 }
 .right {
-    opacity: 0;
-    transform: translate(calc(-50% + 400px), calc(-50%)) scale(0.85);
+  opacity: 0;
+  transform: translate(calc(-50% + var(--width) * 2), calc(-50%)) scale(0.85);
 }
 .left {
-    opacity: 0;
-    transform: translate(calc(-50% - 400px), calc(-50%)) scale(0.85);
+  opacity: 0;
+  transform: translate(calc(-50% - var(--width) * 2), calc(-50%)) scale(0.85);
+}
+#swipe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+}
+footer p{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    font-weight: 800;
+  }
+  footer p a{
+    color: var(--dark);
+    text-decoration: none;
+  }
+  footer p a:hover{
+    text-decoration: revert;
+  }
+@media (max-width: 550px) {
+  :root{
+    --width: 250px;
+    --height: 400px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  footer p{
+    font-size: 0.75rem;
+    font-weight: 800;
+  }
 }
