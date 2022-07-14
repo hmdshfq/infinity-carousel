@@ -16,10 +16,15 @@ body {
   --dark: hsl(219, 73%, 61%);
   --light: hsl(219, 64%, 96%);
 }
-body{
+body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 h1 {
   font-family: sans-serif;
@@ -31,34 +36,16 @@ h1 {
 }
 .slides {
   width: 100%;
-  height: var(--height);
   display: flex;
   gap: 20px;
   position: relative;
   overflow: hidden;
-}
-#prev-slide {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: var(--width);
-  height: 100%;
-  cursor: pointer;
-  transform: translate(calc(-50% - var(--width)), -50%);
-}
-#next-slide {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: var(--width);
-  height: 100%;
-  right: 0;
-  cursor: pointer;
-  transform: translate(calc(-50% + var(--width)), -50%);
+  flex: 1;
+  align-items: center;
 }
 .slide {
   width: var(--width);
-  height: 100%;
+  height: var(--height);
   border-radius: 8px;
   background: #abc4ff;
   position: absolute;
@@ -91,6 +78,25 @@ h1 {
   opacity: 0;
   transform: translate(calc(-50% - var(--width) * 2), calc(-50%)) scale(0.85);
 }
+#prev-slide {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--width);
+  height: 100%;
+  cursor: pointer;
+  transform: translate(calc(-50% - var(--width)), -50%);
+}
+#next-slide {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--width);
+  height: 100%;
+  right: 0;
+  cursor: pointer;
+  transform: translate(calc(-50% + var(--width)), -50%);
+}
 #swipe {
   width: 100%;
   height: 100%;
@@ -99,28 +105,28 @@ h1 {
   left: 0;
   opacity: 1;
 }
-footer p{
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 0.875rem;
-    font-weight: 800;
-  }
-  footer p a{
-    color: var(--dark);
-    text-decoration: none;
-  }
-  footer p a:hover{
-    text-decoration: revert;
-  }
+.footmark {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  font-weight: 800;
+}
+.footmark a {
+  color: var(--dark);
+  text-decoration: none;
+}
+.footmark a:hover {
+  text-decoration: revert;
+}
 @media (max-width: 550px) {
-  :root{
+  :root {
     --width: 250px;
     --height: 400px;
   }
   h1 {
     font-size: 2rem;
   }
-  footer p{
+  .footmark {
     font-size: 0.75rem;
     font-weight: 800;
   }
